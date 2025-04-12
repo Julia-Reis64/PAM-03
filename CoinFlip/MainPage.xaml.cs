@@ -22,7 +22,6 @@
 
             Random random = new Random();
             int Sorteio = random.Next(2);
-
             if (Sorteio == 0){
                 MoedaImagem.Source = "cara.png";
             }
@@ -41,6 +40,8 @@
                await DisplayAlert("Perdeste!", "poxa vida", "Ok!");
             }
         }
+
+        
     }
 
 }
