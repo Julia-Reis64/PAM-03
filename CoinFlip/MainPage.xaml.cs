@@ -1,9 +1,10 @@
-﻿namespace CoinFlip
+﻿using System;
+
+namespace CoinFlip
 {
     public partial class MainPage : ContentPage
     {
-
-        int sorteio = 0;
+        Vitorias victory = new Vitorias();
 
         public MainPage()
         {
@@ -19,17 +20,29 @@
             //Verificar se a opção é igual o lado (if)
             //Exibir o resultado do jogo em um alerta (DisplayAlert)
 
+            /* Random random = new Random();
+                int Sorteio = random.Next(2);
+                   if (Sorteio == 0){
+                    MoedaImagem.Source = "cara.png";
+                    }
+                   else{
+                    Sorteio = 1;
+                    MoedaImagem.Source = "coroa.png";
+                    } */
 
-            Random random = new Random();
-            int Sorteio = random.Next(2);
-            if (Sorteio == 0){
-                MoedaImagem.Source = "cara.png";
+            Coin moeda = new Coin();
+            MoedaImagem.Source = moeda.Flip()+".png";
+
+            if (moeda.LadoSorteado == "cara")
+            {
+                ExibirAlerta(0);
             }
             else{
-                Sorteio = 1;
-                MoedaImagem.Source = "coroa.png";
+                ExibirAlerta(1);
             }
-            
+
+            TotalVitoriasLabel.Text = $"Você ganhou {victory.TotalVitorias} vezes ao todo.";
+            VitoriasSequencia.Text = $"Você ganhou {victory.VitoriaSequencia} vezes em sequencia";
         }
 
         public async void ExibirAlerta(int Sorteio){
@@ -41,7 +54,16 @@
             }
         }
 
-        
+        //Demonstrador de vitórias
+        //PlayerPointLabel.Text = $"Você ganhou {jogo.PlayerPoint} vezes ao todo.";
+        //StreakLabel.Text = $"Você ganhou {jogo.Streak} vezes em sequencia."; */
+        /*
+        public async void Sequencia(int victory){
+            TotalVitoriasLabel.Text = $"Você ganhou {victory.TotalVitorias} vezes ao todo.";
+            VitoriasSequencia.Text = $"Você ganhou {victory.VitoriasSequencia} vezes em sequencia";
+        }
+        */
+
     }
 
 }

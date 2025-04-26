@@ -20,10 +20,10 @@ namespace CoinFlip
             Random random = new Random();
             if (random.Next(2) == 0)
             {
-                LadoSorteado = "Cara";
+                LadoSorteado = "cara";
             }
             else{
-                LadoSorteado = "Coroa";
+                LadoSorteado = "coroa";
             } 
 
             // LadoSorteado = random.Next(2) == 0 ? "Cara" : "Coroa";  
